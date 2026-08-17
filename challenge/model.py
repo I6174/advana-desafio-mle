@@ -22,7 +22,6 @@ class DelayModel:
     ]
 
     def __init__(self):
-        #Usamos LogisticRegression para cumplir con los requerimientos
         self._model = LogisticRegression(class_weight="balanced", random_state=42)
 
     def _get_min_diff(self, row: pd.Series) -> float:
@@ -48,7 +47,7 @@ class DelayModel:
             or
             pd.DataFrame: features.
         """
-        #Generación de features
+        
         features = pd.concat([
             pd.get_dummies(data["OPERA"], prefix="OPERA"),
             pd.get_dummies(data["TIPOVUELO"], prefix="TIPOVUELO"),
@@ -114,7 +113,7 @@ class DelayModel:
 
         features_filtered = features[self.FEATURES_COLS]
 
-        #Checamos el caso en que el modelo aún no se haya ajustado con .fit()
+        #Checamos el caso en que el modelo aún no se haya ajustado
         try:
             predictions = self._model.predict(features_filtered)
         except NotFittedError:

@@ -23,7 +23,7 @@ install:		## Install dependencies
 	pip install -r requirements-test.txt
 	pip install -r requirements.txt
 
-STRESS_URL = https://advana-desafio-mle-991827762237.europe-west1.run.app
+STRESS_URL=https://latam-delay-api-991827762237.us-central1.run.app
 .PHONY: stress-test
 stress-test:
 	# change stress url to your deployed app 

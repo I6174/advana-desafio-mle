@@ -76,7 +76,6 @@ async def post_predict(payload: dict) -> dict:
     for flight in flights:
         validate_flight(flight)
 
-    #Convertimos a DataFrame y ejectuamos el modelo
     data = pd.DataFrame(flights)
     features = model.preprocess(data=data)
     predictions = model.predict(features=features)
